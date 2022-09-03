@@ -1,0 +1,119 @@
+[
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 1,
+        "fields": {
+            "type": "guitar amp",
+            "name": "AC15",
+            "maker": "Vox"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 2,
+        "fields": {
+            "type": "guitar amp",
+            "name": "Twin Reverb",
+            "maker": "Fender"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 3,
+        "fields": {
+            "type": "keyboard amp",
+            "name": "KC200",
+            "maker": "Roland"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 4,
+        "fields": {
+            "type": "bass amp",
+            "name": "SVT",
+            "maker": "Ampeg"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 5,
+        "fields": {
+            "type": "microphone",
+            "name": "SM57",
+            "maker": "Shure"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 6,
+        "fields": {
+            "type": "microphone",
+            "name": "SM58",
+            "maker": "Shure"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 7,
+        "fields": {
+            "type": "condenser microphone(pair)",
+            "name": "KSM137",
+            "maker": "Shure"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 8,
+        "fields": {
+            "type": "drum kit",
+            "name": "Catalina Club",
+            "maker": "Gretsch"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 9,
+        "fields": {
+            "type": "drum kit",
+            "name": "Classic Maple",
+            "maker": "Ludwig"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 10,
+        "fields": {
+            "type": "DI",
+            "name": "ProDI",
+            "maker": "Radial"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 11,
+        "fields": {
+            "type": "keyboard",
+            "name": "Electro 5",
+            "maker": "Nord"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 12,
+        "fields": {
+            "type": "guitar",
+            "name": "statocaster",
+            "maker": "Fender"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.gear",
+        "pk": 13,
+        "fields": {
+            "type": "guitar",
+            "name": "Fender",
+            "maker": "Acoustasonic"
+        }
+    }
+]

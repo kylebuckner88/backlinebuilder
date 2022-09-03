@@ -1,0 +1,26 @@
+ [
+    {
+        "model": "backlinebuilderapi.location",
+        "pk": 1,
+        "fields": {
+            "city": "Nashville",
+            "state": "Tennessee"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.location",
+        "pk": 2,
+        "fields": {
+            "city": "Louisville",
+            "state": "Kentucky"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.location",
+        "pk": 3,
+        "fields": {
+            "city": "Chicago",
+            "state": "Illinois"
+        }
+    }
+ ]

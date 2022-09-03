@@ -1,0 +1,29 @@
+[
+    {
+        "model": "backlinebuilderapi.venue",
+        "pk": 1,
+        "fields": {
+            "location_id": 1,
+            "name": "Ryman Auditorium",
+            "address": "116 5th Ave N, Nashville, TN 37219"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.venue",
+        "pk": 2,
+        "fields": {
+            "location_id": 2,
+            "name": "Headliners Music Hall",
+            "address": "1386 Lexington Rd, Louisville, KY 40206"
+        }
+    },
+    {
+        "model": "backlinebuilderapi.venue",
+        "pk": 3,
+        "fields": {
+            "location_id": 3,
+            "name": "Concord Music Hall",
+            "address": "2051 N Milwaukee Ave, Chicago, IL 60647"
+        }
+    }
+ ]

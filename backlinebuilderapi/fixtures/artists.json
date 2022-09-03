@@ -1,0 +1,10 @@
+[
+    {
+        "model": "backlinebuilderapi.artist",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "bio": "TN natives with an affinity for ambience"
+        }
+    }
+]
