@@ -1,3 +1,5 @@
+
+
 """backlinebuilder URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,11 +17,25 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import include
+from django.conf.urls import include 
 from backlinebuilderapi.views import register_user, login_user
+from rest_framework import routers
+from backlinebuilderapi.views.event import EventView
+from backlinebuilderapi.views.gear import GearView
+from backlinebuilderapi.views.location import LocationView
+from backlinebuilderapi.views.venue import VenueView
+
+router = routers.DefaultRouter(trailing_slash=False)
+router.register(r'events', EventView, 'event')
+router.register(r'gear_list', GearView, 'gear')
+router.register(r'locations', LocationView, 'location')
+router.register(r'venues', VenueView, 'venue')
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login', login_user),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
+    path('register', register_user),
+    path('', include(router.urls)),
 ]
