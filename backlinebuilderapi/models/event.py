@@ -8,3 +8,4 @@ class Event(models.Model):
     venue_id = models.ForeignKey(Venue, on_delete=models.CASCADE)
     notes = models.CharField(max_length=1000)
     date = models.DateField()
+    time = models.TimeField()

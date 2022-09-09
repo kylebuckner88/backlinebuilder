@@ -1,4 +1,5 @@
 from django.db import models
+from backlinebuilderapi.models.venue import Venue 
 
 class Gear(models.Model):
     

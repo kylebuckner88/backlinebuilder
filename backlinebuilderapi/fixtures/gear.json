@@ -112,8 +112,8 @@
         "pk": 13,
         "fields": {
             "type": "guitar",
-            "name": "Fender",
-            "maker": "Acoustasonic"
+            "name": "Acoustasonic",
+            "maker": "Fender"
         }
     }
 ]
