@@ -24,12 +24,14 @@ from backlinebuilderapi.views.event import EventView
 from backlinebuilderapi.views.gear import GearView
 from backlinebuilderapi.views.location import LocationView
 from backlinebuilderapi.views.venue import VenueView
+from backlinebuilderapi.views.venuegear import VenueGearView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'events', EventView, 'event')
-router.register(r'gear_list', GearView, 'gear')
+router.register(r'gearlist', GearView, 'gear')
 router.register(r'locations', LocationView, 'location')
 router.register(r'venues', VenueView, 'venue')
+router.register(r'venuegearlist', VenueGearView, 'venuegear')
 
 
 urlpatterns = [

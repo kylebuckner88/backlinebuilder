@@ -27,8 +27,8 @@ class VenueGearView(ViewSet):
         Returns:
             Response -- JSON serialized list of game types
         """
-        venue_gear_list = VenueGear.objects.all()
-        serializer = VenueGearSerializer(venue_gear_list, many=True)
+        venuegearlist = VenueGear.objects.all()
+        serializer = VenueGearSerializer(venuegearlist, many=True)
         return Response(serializer.data)
     
     def create(self, request):
@@ -39,6 +39,7 @@ class VenueGearView(ViewSet):
         """
         serializer = CreateVenueGearSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
+        serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
     def update(self, request, pk):
@@ -47,15 +48,15 @@ class VenueGearView(ViewSet):
         Returns
             Response -- JSON serialized game instance
         """
-        venue_gear = VenueGear.objects.get(pk=pk)
-        serializer = CreateVenueGearSerializer(venue_gear, data=request.data)
+        venuegear = VenueGear.objects.get(pk=pk)
+        serializer = CreateVenueGearSerializer(venuegear, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(None, status=status.HTTP_204_NO_CONTENT) 
     
     def destroy(self, request, pk):
-        venue_gear = VenueGear.objects.get(pk=pk)
-        venue_gear.delete()
+        venuegear = VenueGear.objects.get(pk=pk)
+        venuegear.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT) 
     
 class VenueGearSerializer(serializers.ModelSerializer):
@@ -63,11 +64,11 @@ class VenueGearSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = VenueGear
-        fields = ('venue_id', 'gear_id')
+        fields = ('id', 'venue', 'gear')
         
 class CreateVenueGearSerializer(serializers.ModelSerializer):
     """JSON serializer for venue gear
     """
     class Meta:
         model = VenueGear
-        fields = ['id', 'venue_id', 'gear_id']
+        fields = ('id', 'venue', 'gear')

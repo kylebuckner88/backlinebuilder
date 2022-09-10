@@ -1,4 +1,0 @@
-CREATE TABLE `Ryman Gear` (
-`id`    INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-`venue_id` INTEGER,
-`gear_id` INTEGER
