@@ -4,7 +4,7 @@
         "pk": 1,
         "fields": {
             "artist": 1,
-            "venue_id": 1,
+            "venue": 1,
             "notes": "",
             "date": "2022-10-25",
             "time": "07:00"
@@ -15,7 +15,7 @@
         "pk": 2,
         "fields": {
             "artist": 1,
-            "venue_id": 2,
+            "venue": 2,
             "notes": "",
             "date": "2022-10-27",
             "time": "07:30"
@@ -26,7 +26,7 @@
         "pk": 3,
         "fields": {
             "artist": 1,
-            "venue_id": 3,
+            "venue": 3,
             "notes": "",
             "date": "2022-10-28",
             "time": "08:00"

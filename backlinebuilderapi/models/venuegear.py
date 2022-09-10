@@ -5,5 +5,5 @@ from backlinebuilderapi.models.gear import Gear
 
 class VenueGear(models.Model):
     
-    venue_id = models.ForeignKey(Venue, on_delete=models.CASCADE)
-    gear_id = models.ForeignKey(Gear, on_delete=models.CASCADE)
+    venue = models.ForeignKey(Venue, on_delete=models.CASCADE)
+    gear = models.ForeignKey(Gear, on_delete=models.CASCADE)

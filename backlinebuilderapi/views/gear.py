@@ -31,11 +31,29 @@ class GearView(ViewSet):
         serializer = GearSerializer(gear_list, many=True)
         return Response(serializer.data)
     
+    def create(self, request):
+        """Handle POST operations
+        
+        Returns 
+        Response -- JSON serialized venue gear instance
+        """
+        serializer = CreateGearSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    
 class GearSerializer(serializers.ModelSerializer):
     """JSON serializer for gear"""
     
     class Meta:
         model = Gear
-        fields = ('type', 'name', 'maker')
+        fields = ('id', 'type', 'name', 'maker')
+        
+class CreateGearSerializer(serializers.ModelSerializer):
+    """JSON serializer for venue gear
+    """
+    class Meta:
+        model = Gear
+        fields = ('id', 'type', 'name', 'maker')
     
     

@@ -26,10 +26,9 @@ class EventView(ViewSet):
             Response -- JSON serialized list of events
         """
         events = Event.objects.all()
-        venue_id = request.query_params.get('id', None)
-        if venue_id is not None:
-            event = events.filter(venue_id=venue_id)
-        artist = Artist.objects.get(user=request.auth.user)
+        venue = request.query_params.get('name', None)
+        if venue is not None:
+            events = events.filter(venue_id=venue)
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data)
     
@@ -42,7 +41,7 @@ class EventView(ViewSet):
         artist = Artist.objects.get(user=request.auth.user)
         serializer = CreateEventSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        serializer.save(organizer=artist)
+        serializer.save(artist=artist)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
     def update(self, request, pk):
@@ -67,14 +66,14 @@ class EventSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Event
-        fields = ['artist', 'venue_id', 'notes', 'date', "time"]
+        fields = ['id', 'artist', 'venue', 'notes', 'date', "time"]
         
 class CreateEventSerializer(serializers.ModelSerializer):
     """JSON serializer for events
     """
     class Meta:
         model = Event
-        fields = ['id', 'venue_id', 'notes', 'date', 'time']
+        fields = ['id', 'venue', 'notes', 'date', 'time']
         
         
         
