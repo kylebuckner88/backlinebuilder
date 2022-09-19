@@ -27,8 +27,8 @@ class GearView(ViewSet):
         Returns:
             Response -- JSON serialized list of game types
         """
-        gear_list = Gear.objects.all()
-        serializer = GearSerializer(gear_list, many=True)
+        gearlist = Gear.objects.all()
+        serializer = GearSerializer(gearlist, many=True)
         return Response(serializer.data)
     
     def create(self, request):

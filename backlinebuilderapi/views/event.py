@@ -3,6 +3,8 @@ from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from backlinebuilderapi.models import Event, Artist
+from datetime import date
+from time import time 
 
 class EventView(ViewSet):
     "Backline Builder event view"""
@@ -26,9 +28,8 @@ class EventView(ViewSet):
             Response -- JSON serialized list of events
         """
         events = Event.objects.all()
-        venue = request.query_params.get('name', None)
-        if venue is not None:
-            events = events.filter(venue_id=venue)
+        
+        
         serializer = EventSerializer(events, many=True)
         return Response(serializer.data)
     
@@ -67,6 +68,7 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ['id', 'artist', 'venue', 'notes', 'date', "time"]
+        depth = 3
         
 class CreateEventSerializer(serializers.ModelSerializer):
     """JSON serializer for events
