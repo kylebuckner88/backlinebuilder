@@ -39,5 +39,5 @@ urlpatterns = [
     path('login', login_user),
     path('admin/', admin.site.urls),
     path('register', register_user),
-    path('', include(router.urls)),
+    path('', include(router.urls))
 ]

@@ -28,12 +28,33 @@ class LocationView(ViewSet):
             Response -- JSON serialized list of locations
         """
         locations = Location.objects.all()
+        
+            
         serializer = LocationSerializer(locations, many=True)
         return Response(serializer.data)
+    
+    def create(self, request):
+        """Handle POST operations
+        
+        Returns 
+        Response -- JSON serialized venue gear instance
+        """
+        serializer = CreateLocationSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
     
 class LocationSerializer(serializers.ModelSerializer):
     """JSON serializer for locations"""
     
     class Meta:
         model = Location
-        fields = ('city', 'state')
+        fields = ('id', 'city', 'state')
+        depth = 3
+        
+class CreateLocationSerializer(serializers.ModelSerializer):
+    """JSON serializer for venue gear
+    """
+    class Meta:
+        model = Location
+        fields = ('id', 'city', 'state')

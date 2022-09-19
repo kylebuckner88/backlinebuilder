@@ -22,18 +22,43 @@ class VenueView(ViewSet):
         except Venue.DoesNotExist as ex:
             return Response({'message': ex.args[0]}, status=status.HTTP_404_NOT_FOUND)
                 
-    def list(self, request):
+    def list(self, request ):
         """Handle GET requests to get all venues
         Returns:
             Response -- JSON serialized list of venues
         """
         venues = Venue.objects.all()
+        
+        location = request.query_params.get('location', None)
+        if location is not None:
+            venues = venues.filter(location_id=location)
+            
         serializer = VenueSerializer(venues, many=True)
         return Response(serializer.data)
+    
+    def create(self, request):
+        """Handle POST operations
+            
+        Returns 
+        Response -- JSON serialized venue gear instance
+        """
+            
+        serializer = CreateVenueSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
     
 class VenueSerializer(serializers.ModelSerializer):
     """JSON serializer for venues"""
     
     class Meta:
         model = Venue 
+        fields = ('id', 'location', 'name', 'address')
+        depth = 4
+        
+class CreateVenueSerializer(serializers.ModelSerializer):
+    """JSON serializer for venue gear
+    """
+    class Meta:
+        model = Venue
         fields = ('id', 'location', 'name', 'address')
