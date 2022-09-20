@@ -29,9 +29,9 @@ class VenueGearView(ViewSet):
         """
         venuegearlist = VenueGear.objects.all()
         
-        # gear = request.query_params.get('gear', None)
-        # if gear is not None:
-        #     venuegearlist =venuegearlist.filter(gear_id=gear)
+        venue = request.query_params.get('venue', None)
+        if venue is not None:
+            venuegearlist = venuegearlist.filter(venue_id=venue)
         
         serializer = VenueGearSerializer(venuegearlist, many=True)
         return Response(serializer.data)
@@ -60,8 +60,8 @@ class VenueGearView(ViewSet):
         return Response(None, status=status.HTTP_204_NO_CONTENT) 
     
     def destroy(self, request, pk):
-        gear = VenueGear.objects.get(pk=pk)
-        gear.delete()
+        venuegear = VenueGear.objects.get(pk=pk)
+        venuegear.delete()
         return Response(None, status=status.HTTP_204_NO_CONTENT) 
     
 class VenueGearSerializer(serializers.ModelSerializer):
@@ -70,7 +70,7 @@ class VenueGearSerializer(serializers.ModelSerializer):
     class Meta:
         model = VenueGear
         fields = ('id', 'gear', 'venue')
-        depth = 2
+        depth = 1
         
 class CreateVenueGearSerializer(serializers.ModelSerializer):
     """JSON serializer for venue gear
@@ -78,4 +78,3 @@ class CreateVenueGearSerializer(serializers.ModelSerializer):
     class Meta:
         model = VenueGear
         fields = ('id', 'venue', 'gear')
-        depth = 3
