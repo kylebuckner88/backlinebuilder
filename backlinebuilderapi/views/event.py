@@ -43,6 +43,9 @@ class EventView(ViewSet):
         serializer = CreateEventSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save(artist=artist)
+        print("****" * 100)
+        print(request.data)
+        print("****" * 100)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     
     def update(self, request, pk):
@@ -68,7 +71,7 @@ class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = ['id', 'artist', 'venue', 'notes', 'date', "time"]
-        depth = 3
+        depth = 2
         
 class CreateEventSerializer(serializers.ModelSerializer):
     """JSON serializer for events
